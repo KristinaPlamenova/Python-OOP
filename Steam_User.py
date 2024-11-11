@@ -1,32 +1,34 @@
-class SteamUser:
-    def __init__(self, username: str, games: list):
-        self.username = username
-        self.games = games
-        self.played_hours = 0
+class Programmer:
+    def __init__(self, name, language, skills):
+        self.name = name
+        self.language = language
+        self.skills = skills
 
-    def play(self, game, hours):
-        if game not in self.games:
-            return f"{game} is not in the library"
+    def watch_course(self, course_name, language, skills_earned):
+        if self.language != language:
+            return f"{self.name} does not know {language}"
 
-        self.played_hours += hours
+        self.skills += skills_earned
 
-        return f"{self.username} is playing {game}"
+        return f"{self.name} watched {course_name}"
 
 
-    def buy_game(self, game):
-        if game not in self.games:
-            self.games.append(game)
-            return f"{self.username} bought {game}"
-        else:
-            return f"{game} is already in your library"
 
-    def status(self):
-        return f"{self.username} has {len(self.games)} games. Total play time: {self.played_hours}"
+    def change_language(self, new_language, skills_needed):
+        if self.skills >= skills_needed:
+            if self.language != new_language:
+                previous_language = self.language
+                self.language = new_language
+                return f"{self.name} switched from {previous_language} to {new_language}"
 
-user = SteamUser("Peter", ["Rainbow SixSiege", "CS:GO", "Fortnite"])
-print(user.play("Fortnite", 3))
-print(user.play("Oxygen Not Included", 5))
-print(user.buy_game("CS:GO"))
-print(user.buy_game("Oxygen Not Included"))
-print(user.play("Oxygen Not Included", 6))
-print(user.status())
+            return f"{self.name} already knows {self.language}"
+
+        return f"{self.name} needs {skills_needed - self.skills} more skills"
+
+programmer = Programmer("John", "Java", 50)
+print(programmer.watch_course("Python Masterclass", "Python", 84))
+print(programmer.change_language("Java", 30))
+print(programmer.change_language("Python", 100))
+print(programmer.watch_course("Java: zero to hero", "Java", 50))
+print(programmer.change_language("Python", 100))
+print(programmer.watch_course("Python Masterclass", "Python", 84))
