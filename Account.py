@@ -1,29 +1,28 @@
 class Account:
-    def __init__(self, id: int, name: str, balance: int = 0):
-        self.id = id
-        self.name = name
+    def __init__(self, id, balance, pin):
+        self.__id = id
         self.balance = balance
+        self.__pin = pin
 
-    def credit(self, amount: int):
-        self.balance += amount
-        return self.balance
-
-    def debit(self, amount: int):
-        if amount <= self.balance:
-            self.balance -= amount
-            return self.balance
-
-        return "Amount exceeded balance"
-
-    def info(self):
-        return f"User {self.name} with account {self.id} has {self.balance} balance"
+    def get_id(self, pin):
+        if self.__pin == pin:
+            return self.__id
+        return "Wrong pin"
 
 
-account = Account(5411256, "Peter")
-print(account.debit(500))
-print(account.credit(1000))
-print(account.debit(500))
-print(account.info())
+
+    def change_pin(self, old_pin, new_pin):
+        if old_pin == self.__pin:
+            self.__pin = new_pin
+            return "Pin changed"
+        return "Wrong pin"
+
+
+
+
+
+
+
 
 
 
