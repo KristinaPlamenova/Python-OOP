@@ -1,0 +1,9 @@
+nums = [int(x) for x in input().split(",")]
+copy_num = nums
+
+for index in range(len(nums)):
+    if nums[index] == 0:
+        copy_num.remove(0)
+        copy_num.append(0)
+
+print(*copy_num, sep=",")
