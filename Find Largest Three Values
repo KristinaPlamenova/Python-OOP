@@ -1,0 +1,29 @@
+n = int(input())
+numbers = []
+max_num = -501
+second_num = -501
+th_num = -501
+for i in range(n):
+    num = int(input())
+    numbers.append(num)
+
+
+for el in numbers:
+    if el > max_num:
+        max_num = el
+numbers.pop(numbers.index(max_num))
+
+for el in numbers:
+    if el > second_num:
+        second_num = el
+numbers.pop(numbers.index(second_num))
+
+
+for el in numbers:
+    if el > th_num:
+        th_num = el
+numbers.pop(numbers.index(th_num))
+
+
+
+print(f"{max_num}, {second_num} and {th_num}")
