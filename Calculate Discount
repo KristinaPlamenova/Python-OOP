@@ -1,0 +1,14 @@
+n = int(input())
+numbers = []
+discount = []
+for i in range(n):
+    num = float(input())
+    numbers.append(num)
+
+for num in numbers:
+    dis = num - (num * 0.65)
+    roun_dis = f"{dis:.2f}"
+    discount.append(roun_dis)
+
+for a in discount:
+    print(a)
