@@ -1,0 +1,15 @@
+n = int(input())
+numbers = [int(el) for el in input().split()]
+odd = 1
+even = 1
+
+for i in range(1, n + 1):
+    if i % 2 == 0:
+        even *= numbers[i - 1]
+    else:
+        odd *= numbers[i - 1]
+
+if odd == even:
+    print("yes", odd)
+else:
+    print("no", odd, even)
