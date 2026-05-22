@@ -1,0 +1,19 @@
+n = int(input())
+nums = []
+
+for _ in range(n):
+    num = int(input())
+    nums.append(num)
+
+copy_nums = nums.copy()
+
+for i in range(0, n - 1, 1):
+    if nums[i] > nums[i + 1]:
+        copy_nums.insert(i + 1 + i, ">")
+    elif nums[i] < nums[i + 1]:
+        copy_nums.insert(i + 1 + i, "<")
+    elif nums[i] == nums[i + 1]:
+        copy_nums.insert(i + 1 + i, "=")
+
+
+print(''.join([str(x) for x in copy_nums]))
