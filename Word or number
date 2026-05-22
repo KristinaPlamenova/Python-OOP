@@ -1,0 +1,13 @@
+line = input()
+result = []
+
+
+if line[0].isdigit() or line[0] == "-":
+    result = float(line) + 1
+    if result.is_integer():
+        print(int(result))
+    else:
+        print(result)
+else:
+    result = line[::-1]
+    print(result)
