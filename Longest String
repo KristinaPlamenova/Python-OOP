@@ -1,0 +1,11 @@
+longest = ''
+
+word = input()
+
+while word != "END":
+    if len(word) >= len(longest):
+        longest = word
+    
+    word = input()
+
+print(longest)
