@@ -1,0 +1,31 @@
+
+n = int(input())
+line = []
+for _ in range(n):
+    w = input()
+    try:
+        x = int(w)
+        line.append(x)
+    except:
+        line.append(w)
+
+
+words = []
+
+words.append(line[0])
+line.pop(0)
+
+
+for a in line:
+    if type(a) == int and type(words[-1]) == int:
+        result = int(a) + int(words[-1])
+        words[-1] = result
+    elif type(a) == str and type(words[-1]) == str:
+        words[-1] = words[-1] + "-" + a
+    elif type(a) == int and type(words[-1]) == str:
+        words.append(a)
+    elif type(a) == str and type(words[-1]) == int:
+        words.append(a)
+
+for a in words:
+    print(a)
