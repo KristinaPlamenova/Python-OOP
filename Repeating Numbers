@@ -1,0 +1,12 @@
+n = int(input())
+d = {}
+l = [int(input()) for _ in range(n)]
+
+for num in l:
+  if num not in d:
+    d[num] = 1
+  else:
+    d[num] += 1
+
+result = max(d, key=lambda x: (d[x], -x))
+print(result)
