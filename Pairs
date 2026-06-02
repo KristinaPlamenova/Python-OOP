@@ -1,0 +1,13 @@
+n = int(input())
+numbers = [int(x) for x in input().split(" ")]
+no_pairs = True
+
+for i in range(len(numbers) -1):
+    num1 = numbers[i]
+    for j in range(i + 1, len(numbers) -1):
+        if num1 + numbers[j] == n:
+            print(num1, numbers[j], sep=",")
+            no_pairs = False
+            
+if no_pairs:
+    print("no pairs")
