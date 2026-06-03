@@ -1,0 +1,13 @@
+n = int(input())
+
+first = int(input())
+current_sum = first
+max_sum = first
+
+for _ in range(n - 1):
+    num = int(input())
+
+    current_sum = max(num, current_sum + num)
+    max_sum = max(max_sum, current_sum)
+
+print(max_sum)
