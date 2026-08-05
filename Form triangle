@@ -1,0 +1,16 @@
+def can_form_triangle(num1: int, num2: int, num3: int):
+    form_triangle = True
+    try1 = num1 + num2
+    try2 = num1 + num3
+    try3 = num2 + num3
+    if try1 <= num3:
+        form_triangle = False
+    elif try2 <= num2:
+        form_triangle = False
+    elif try3 <= num1:
+        form_triangle = False
+
+    return print(form_triangle)
+
+x = can_form_triangle(3,4,5) # x = True
+x1 = can_form_triangle(3,6,3) # x = False
