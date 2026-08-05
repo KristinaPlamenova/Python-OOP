@@ -1,0 +1,20 @@
+def stronger_letter(text: str, letter1: str, letter2):
+    count1 = 0
+    count2 = 0
+    for i in text:
+        if i == letter1:
+            count1 += 1
+        elif i == letter2:
+            count2 += 1
+    result = max(count1, count2)
+    if count1 == count2:
+        return print(letter1)
+    elif result == count1:
+        return print(letter1)
+    else:
+        return print(letter2)
+
+
+x = stronger_letter('abca', 'a', 'b') # x = 'a'
+x1 = stronger_letter('abbca', 'c', 'b') # x = 'b'
+x2 = stronger_letter('aabbc', 'b', 'a') # x = 'b' (return the first one in case of a tie)
