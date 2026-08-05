@@ -1,0 +1,10 @@
+def occurrences(letter: str, text: str):
+    count = 0
+    for i in text:
+        if i == letter:
+            count += 1
+    return print(count)
+
+x = occurrences('a', 'aaa') # x = 3
+x1 = occurrences('a', 'aabb') # x = 2
+x2 = occurrences('a', 'bbcc') # x = 0
