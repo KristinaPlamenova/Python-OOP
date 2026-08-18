@@ -1,0 +1,55 @@
+python_dictionary = []
+
+def add_word(word, meaning):
+    global python_dictionary
+    python_dictionary.append([word, meaning])
+
+    print('Added word')
+
+
+
+def update_meaning(word, meaning):
+    global python_dictionary
+    for i in python_dictionary:
+        if word == i[0]:
+            i[1] = meaning
+            print('Meaning updated')
+
+
+
+
+def find_word(word):
+    global python_dictionary
+    for text in python_dictionary:
+        words = text[0]
+        meaning = text[1]
+        if words == word:
+            print(f'{words}: "{meaning}"')
+            return
+
+    print('No such word')
+
+
+
+while True:
+    line = input()
+    if line == 'exit':
+        break
+
+    command, *rest = line.split(':')
+    if command == 'add':
+        word, meaning = rest[0], rest[1]
+        add_word(word, meaning)
+
+    elif command == 'update':
+        word, updated_meaning = rest[0], rest[1]
+        update_meaning(word, updated_meaning)
+
+    elif command == 'find':
+        find_word(rest[0])
+
+    else:
+        print('Unknown command')
+
+
+    
