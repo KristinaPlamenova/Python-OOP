@@ -1,0 +1,6 @@
+numbers = input()
+
+numbers = numbers.split()
+numbers = numbers[::-1]
+
+print(', '.join(numbers))
