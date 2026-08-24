@@ -1,0 +1,64 @@
+num = int(input())
+foods = []
+dictionary = {}
+third_dictionary = {}
+vowels = 'aouei'
+second_dict = {}
+
+for n in range(num):
+    food = input()
+    foods.append(food)
+
+
+for word in foods:
+    count = 0
+    for l in word:
+        if l.lower() in vowels:
+            count += 1
+
+    dictionary[word] = count
+
+for key, values in dictionary.items():
+    st = values / len(key)
+    second_dict[key] = st
+
+
+smallest = min(second_dict.values())
+
+
+for key, values in second_dict.items():
+    if smallest == values:
+        third_dictionary[key] = values
+
+
+if len(third_dictionary) > 1:
+    last_dict = {}
+    max_num = 0
+    for key, values in third_dictionary.items():
+        count = 0
+        for k in key:
+            if k in vowels:
+                count += 1
+        third_dictionary[key] = count
+
+
+maximum = max(third_dictionary.values())
+
+if maximum == 0:
+    new_dict = {}
+    m = 0
+    for word in foods:
+        new_dict[word] = len(word)
+
+    longest_word = max(new_dict, key=new_dict.get)
+    print(f'{longest_word} {maximum}/{len(longest_word)}')
+
+
+else:
+    for key, values in third_dictionary.items():
+        if maximum == values:
+            count = 0
+            for k in key:
+                if k in vowels:
+                    count += 1
+            print(f'{key} {count}/{len(key)}')
