@@ -1,0 +1,17 @@
+
+n = int(input())
+numbers = [int(input()) for x in range(n)]
+
+current = 1
+best = 1
+
+for i in range(0, len(numbers) - 1, 1):
+    if numbers[i] < numbers[i + 1]:
+        current += 1
+    else:
+        current = 1
+
+    if current > best:
+        best = current
+
+print(best)
