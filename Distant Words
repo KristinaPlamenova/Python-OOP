@@ -1,0 +1,30 @@
+target_num = int(input())
+n = int(input())
+
+words = [input() for x in range(n)]
+
+
+total = {}
+alphabet = "abcdefghijklmnopqrstuvwxyz"
+new_dict = {}
+av = 0
+
+for word in words:
+    sum = 0
+    for letter in word:
+        position = alphabet.index(letter.lower()) + 1
+        sum += position
+    total[word] = sum
+
+
+for key, values in total.items():
+    new_dict[key] = abs(values - target_num)
+    val = abs(values - target_num)
+    print(f"{key} {val}")
+
+for val in new_dict.values():
+    av += val
+
+average = av / n
+print(f"{average:.2f}")
+
