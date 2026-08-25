@@ -1,0 +1,25 @@
+nums = input().split()
+integ = []
+
+
+for n in nums:
+    new = int(n)
+    integ.append(new)
+
+
+group_0 = []
+group_1 = []
+group_2 = []
+
+for n in integ:
+    if n % 3 == 0:
+        group_0.append(n)
+    elif n % 3 == 1:
+        group_1.append(n)
+    elif n % 3 == 2:
+        group_2.append(n)
+
+
+print(*group_0)
+print(*group_1)
+print(*group_2)
