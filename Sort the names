@@ -1,0 +1,16 @@
+names = input().split()
+
+sorted_names = sorted(names, key=lambda name: (name[0], -len(name)))
+
+new = []
+for name in sorted_names:
+    first_letter = name[0]
+    sor = sorted(name[1:])
+    st = "".join(sor)
+    news = first_letter + st
+    new.append(news)
+
+
+n = sorted(new)
+
+print(*n)
