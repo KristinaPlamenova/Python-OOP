@@ -1,0 +1,25 @@
+start = int(input())
+
+nums = [int(x) for x in input().split(",")]
+
+cmd = input().split()
+fwr = 0
+bwr = 0
+
+while cmd[0] != "exit":
+    steps = int(cmd[0])
+    direction = 1 if cmd[1] == "forward" else -1
+    size = int(cmd[2])
+
+    for _ in range(steps):
+        start = (start + direction * size) % len(nums)
+
+        if direction < 0:
+            bwr += nums[start]
+        else:
+            fwr += nums[start]
+
+    cmd = input().split()
+
+print(f"Forward: {fwr}")
+print(f"Backwards: {bwr}")
