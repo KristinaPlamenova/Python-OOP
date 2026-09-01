@@ -1,0 +1,27 @@
+num = int(input())
+
+array = []
+prime_nums = []
+for i in range(1, num + 1):
+    array.append(i)
+
+for i in range(1, num + 1):
+    is_prime = True
+
+    for div in range(2, i):
+        if i % div == 0:
+            is_prime = False
+            break
+
+
+    if is_prime:
+        prime_nums.append(i)
+
+for prime in prime_nums:
+    for j in range(1, prime + 1):
+        if j in prime_nums:
+            print(1, end="")
+        else:
+            print(0, end="")
+
+    print()
