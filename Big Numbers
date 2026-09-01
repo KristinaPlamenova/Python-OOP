@@ -1,0 +1,33 @@
+num = [int(x) for x in input().split()]
+
+array1 = [int(x) for x in input().split()]
+
+array2 = [int(y) for y in input().split()]
+
+
+ar1 = array1[::-1]
+ar2 = array2[::-1]
+
+st1 = ''
+st2 = ''
+for i in ar1:
+    s = str(i)
+    st1 += s
+
+for i in ar2:
+    s = str(i)
+    st2 += s
+
+integ1 = int(st1)
+integ2 = int(st2)
+
+res = integ1 + integ2
+ress = str(res)
+t = []
+
+for y in ress:
+    t.append(y)
+
+
+total = t[::-1]
+print(*total)
