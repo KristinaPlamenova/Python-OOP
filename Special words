@@ -1,0 +1,23 @@
+words = input(). split()
+
+already_met_anagrams = set()
+
+result = []
+
+sor = []
+
+for word in words:
+    new = ''.join(sorted(word))
+    sor.append(new)
+
+
+s = set(sor)
+
+for word in words:
+    anagram = ''.join(sorted(word))
+    if anagram in s:
+        result.append(word)
+        s.remove(anagram)
+
+
+print(*result)
