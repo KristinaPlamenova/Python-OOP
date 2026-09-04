@@ -1,0 +1,21 @@
+
+matrix = []
+biggest = []
+while True:
+    line = input()
+
+    if line == "":
+        break
+
+
+    row = [int(x) for x in line.split()]
+    matrix.append(row)
+
+
+for n in matrix:
+    sum = 0
+    for j in n:
+        sum += j
+    biggest.append(sum)
+
+print(max(biggest))
