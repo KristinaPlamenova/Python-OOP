@@ -1,0 +1,35 @@
+n = int(input())
+
+matrix = []
+
+for _ in range(n):
+    line = input().split()
+    matrix.append(line)
+
+
+matrix = [[int(x) for x in row] for row in matrix]
+
+
+sum = 0
+
+if n % 2 == 0:
+    for i in range(n):
+        sum += matrix[i][i]
+
+    for i in range(n):
+        sum += matrix[i][n -i -1]
+
+
+else:
+    num = n // 2
+    middle_num = matrix[num][num]
+    for i in range(n):
+        sum += matrix[i][i]
+
+    for i in range(n):
+        sum += matrix[i][n -i -1]
+
+    sum -= middle_num
+
+
+print(sum)
