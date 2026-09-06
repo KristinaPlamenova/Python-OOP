@@ -1,0 +1,19 @@
+n = int(input())
+
+matrix = []
+
+for row in range(n):
+    current_row = []
+    for col in range(n):
+        current_row.append(2 ** (row + col))
+    matrix.append(current_row)
+
+
+sum = 0
+for i in range(n):
+    for j in range(i +1, n):
+        sum += matrix[i][j]
+
+for i in range(n):
+        sum += matrix[i][i]
+print(sum)
