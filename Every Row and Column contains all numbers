@@ -1,0 +1,44 @@
+
+nums = input().split(',')
+
+matrix = [[int(x) for x in row.split()] for row in nums]
+
+l = len(matrix[0])
+
+result = True
+sec_result = True
+for row in matrix:
+    numbers = []
+    for i in range(1, l + 1):
+        numbers.append(i)
+    for col in row:
+        if col in numbers:
+            numbers.remove(col)
+    if numbers:
+        result = False
+        break
+    else:
+        result = True
+
+
+for i in range(len(matrix[0])):
+    numbers1 = []
+    for y in range(1, l + 1):
+        numbers1.append(y)
+
+    for j in range(len(matrix)):
+        n = matrix[j][i]
+        if matrix[j][i] in numbers1:
+            numbers1.remove(matrix[j][i])
+    if numbers1:
+        sec_result = False
+        break
+    else:
+        sec_result = True
+
+
+
+if result == True and sec_result == True:
+    print('true')
+else:
+    print('false')
