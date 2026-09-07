@@ -1,0 +1,22 @@
+
+
+nums = input().split(',')
+rows = int(input())
+cols = int(input())
+
+matrix = [[int(x) for x in row.split()] for row in nums]
+
+n = 0
+
+if len(nums) != rows * cols:
+    print([])
+
+else:
+    for i in range(rows):
+        new = []
+        for j in range(cols):
+            new.append(matrix[n])
+            n += 1
+        for x in new:
+            print(*x, end=" ")
+        print()
