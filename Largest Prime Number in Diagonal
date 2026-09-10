@@ -1,0 +1,38 @@
+nums = input().split(',')
+
+matrix = [[int(x) for x in row.split()] for row in nums]
+main_diagonal = []
+second_diagonal = []
+
+
+def is_prime(num):
+    if num <= 1:
+        return False
+
+    prime = True
+    for i in range(2, num):
+        if num % i == 0:
+            prime = False
+            break
+
+    return prime
+
+l = len(nums)
+for y in range(l):
+    val = matrix[y][y]
+
+    if is_prime(val):
+        main_diagonal.append(val)
+
+for y in range(l):
+    vall = matrix[y][l - y - 1]
+
+    if is_prime(vall):
+        second_diagonal.append(vall)
+
+if not second_diagonal and not main_diagonal:
+    print(0)
+else:
+    main_diagonal.extend(second_diagonal)
+    maximum = max(main_diagonal)
+    print(maximum)
