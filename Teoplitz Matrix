@@ -1,0 +1,22 @@
+nums = input().split(',')
+
+matrix = [[int(x) for x in row.split()] for row in nums]
+
+
+
+m = len(matrix[0])
+n = len(matrix)
+is_toeplitz =True
+
+
+
+for row in range(n -1):
+    for col in range(m - 1):
+        if matrix[row][col] != matrix[row + 1][col + 1]:
+            is_toeplitz = False
+            break
+
+if is_toeplitz:
+    print('true')
+else:
+    print('false')
