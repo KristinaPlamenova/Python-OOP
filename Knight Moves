@@ -1,0 +1,68 @@
+import sys
+
+sys.setrecursionlimit(10000)
+
+size = int(input())
+
+matrix = [[0] * size for i in range(size)]
+
+move = 1
+
+def is_inrange(i, j, size):
+    if (i < size and i >= 0) and (j < size and j >= 0):
+        return True
+    else:
+        return False
+
+def generate_valid_pos(i, j, size):
+    global matrix
+    valid_pos = []
+    pos1 = i - 2, j - 1
+    if is_inrange(*pos1, size) and matrix[pos1[0]][pos1[1]] == 0:
+        valid_pos.append(pos1)
+
+    pos2 = i - 2, j + 1
+    if is_inrange(*pos2, size) and matrix[pos2[0]][pos2[1]] == 0:
+        valid_pos.append(pos2)
+    pos3 = i - 1, j - 2
+    if is_inrange(*pos3, size) and matrix[pos3[0]][pos3[1]] == 0:
+        valid_pos.append(pos3)
+    pos4 = i - 1, j + 2
+    if is_inrange(*pos4, size) and matrix[pos4[0]][pos4[1]] == 0:
+        valid_pos.append(pos4)
+    pos5 = i + 1, j - 2
+    if is_inrange(*pos5, size) and matrix[pos5[0]][pos5[1]] == 0:
+        valid_pos.append(pos5)
+    pos6 = i + 1, j + 2
+    if is_inrange(*pos6, size) and matrix[pos6[0]][pos6[1]] == 0:
+        valid_pos.append(pos6)
+    pos7 = i + 2, j - 1
+    if is_inrange(*pos7, size) and matrix[pos7[0]][pos7[1]] == 0:
+        valid_pos.append(pos7)
+    pos8 = i + 2, j + 1
+    if is_inrange(*pos8, size) and matrix[pos8[0]][pos8[1]] == 0:
+        valid_pos.append(pos8)
+
+    return valid_pos
+
+
+def knight_pos(i, j):
+    global size
+    global move
+    global matrix
+    if matrix[i][j] != 0:
+        return
+    matrix[i][j] = move
+    move += 1
+    pos = generate_valid_pos(i, j, size)
+    if not pos:
+        return
+    p = min(pos)
+    knight_pos(*p)
+
+for i in range(size):
+    for j in range(size):
+        knight_pos(i, j)
+
+for row in matrix:
+    print(*row)
