@@ -1,0 +1,58 @@
+
+rows = int(input())
+cols = int(input())
+
+n = int(input())
+
+codes = [int(x) for x in input().split()]
+
+coeff = max(rows, cols)
+
+current_row = rows - 1
+current_col = 0
+
+visited = set()
+
+total = 0
+
+
+def get_value(row, col):
+    return 2 ** ((rows - 1 - row) + col)
+
+
+# Началната клетка
+visited.add((current_row, current_col))
+total += get_value(current_row, current_col)
+
+
+for code in codes:
+
+    target_row = code // coeff
+    target_col = code % coeff
+
+    # Първо се движим хоризонтално
+    while current_col != target_col:
+
+        if current_col < target_col:
+            current_col += 1
+        else:
+            current_col -= 1
+
+        if (current_row, current_col) not in visited:
+            visited.add((current_row, current_col))
+            total += get_value(current_row, current_col)
+
+    # След това се движим вертикално
+    while current_row != target_row:
+
+        if current_row < target_row:
+            current_row += 1
+        else:
+            current_row -= 1
+
+        if (current_row, current_col) not in visited:
+            visited.add((current_row, current_col))
+            total += get_value(current_row, current_col)
+
+
+print(total)
