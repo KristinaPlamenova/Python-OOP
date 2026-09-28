@@ -1,0 +1,17 @@
+word1 = input()
+word2 = input()
+
+for i in range(min(len(word1), len(word2))):
+    if ord(word1[i]) < ord(word2[i]):
+        print('first')
+        break
+    elif ord(word1[i]) > ord(word2[i]):
+        print('second')
+        break
+else:
+    if len(word1) < len(word2):
+        print('first')
+    elif len(word2) < len(word1):
+        print('second')
+    else:
+        print("equal")
