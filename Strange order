@@ -1,0 +1,17 @@
+array = [int(x) for x in input().split(',')]
+
+negative = []
+positive = []
+zero = []
+
+for num in array:
+    if num > 0:
+        positive.append(num)
+    elif num == 0:
+        zero.append(num)
+    elif num < 0:
+        negative.append(num)
+
+new = negative + zero + positive
+
+print(*new, sep=',')
