@@ -1,0 +1,12 @@
+num = int(input())
+
+for _ in range(num):
+    array = [int(x) for x in input().split()]
+    for i in range(len(array)):
+        x = array[i]
+        y = (len(array) - 1 - i)
+        if array[i] != array[(len(array) - 1 - i)]:
+            print('No')
+            break
+    else:
+        print('Yes')
