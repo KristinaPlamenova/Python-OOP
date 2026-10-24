@@ -1,0 +1,14 @@
+w = input()
+n = int(input())
+words = []
+so = sorted(w)
+for _ in range(n):
+    wo = input()
+    words.append(wo)
+
+for word in words:
+    if sorted(word) == so:
+        print('Yes')
+    else:
+        print('No')
+    
